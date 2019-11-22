@@ -1,6 +1,6 @@
 <?php
 
-namespace WS\NFs\EL;
+namespace NFs\EL;
 
 use SoapClient;
 
@@ -13,7 +13,7 @@ use DOMElement;
 // CNPJ TOMADOR TESTE => 53350865000144
 // CPF TOMADOR TESTE => 31497508385
 
-class WebServiceEL {
+class WebService {
     protected $nfs;
     protected $urlWsdl;
 
