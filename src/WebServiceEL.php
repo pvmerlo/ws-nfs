@@ -13,7 +13,7 @@ use DOMElement;
 // CNPJ TOMADOR TESTE => 53350865000144
 // CPF TOMADOR TESTE => 31497508385
 
-class WSEL {
+class WebServiceEL {
     protected $nfs;
     protected $urlWsdl;
 
