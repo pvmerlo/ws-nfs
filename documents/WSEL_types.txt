@@ -1,0 +1,329 @@
+0 => """
+struct finalizarSessao {
+    string hashIdentificador;
+}
+"""
+1 => """
+struct finalizarSessaoResponse {
+}
+"""
+2 => """
+struct CancelarNfseEnvio {
+    string identificacaoPrestador;
+    string numeroNfse;
+}
+"""
+3 => """
+struct CancelarNfseEnvioResponse {
+    nfseRpsResposta return;
+}
+"""
+4 => """
+struct nfseRpsResposta {
+    string mensagens;
+    nfeRpsNotaFiscal nfeRpsNotaFiscal;
+}
+"""
+5 => """
+struct nfeRpsNotaFiscal {
+    dateTime dataProcessamento;
+    string idNfseCancelada;
+    string idNota;
+    string idRps;
+    long numero;
+    string rpsNumero;
+    string situacao;
+}
+"""
+6 => """
+struct fecharConexao {
+}
+"""
+7 => """
+struct fecharConexaoResponse {
+}
+"""
+8 => """
+struct validarAidf {
+    string identificacaoAidf;
+}
+"""
+9 => """
+struct validarAidfResponse {
+    string return;
+}
+"""
+10 => """
+struct verificarContribuinte {
+    string identificacaoPrestador;
+    string senha;
+}
+"""
+11 => """
+struct verificarContribuinteResponse {
+    nfseContribuinte return;
+}
+"""
+12 => """
+struct nfseContribuinte {
+    string bairro;
+    string cep;
+    string email;
+    string estado;
+    string inscEstad;
+    string inscMunic;
+    string logradouro;
+    string municipio;
+    string naturezaTributacao;
+    string nomeFantasia;
+    string numero;
+    string optanteSimples;
+    string razaoSocial;
+    string regimeTributacao;
+    string siglaEstado;
+    string site;
+    string telefone;
+    string tipoLogradouro;
+}
+"""
+13 => """
+struct ConsultarSituacaoLoteRpsEnvio {
+    string identificacaoPrestador;
+    string numeroProtocolo;
+}
+"""
+14 => """
+struct ConsultarSituacaoLoteRpsEnvioResponse {
+    situacaoLoteRps return;
+}
+"""
+15 => """
+struct situacaoLoteRps {
+    string mensagens;
+    string numeroLote;
+    int situacaoLoteRps;
+}
+"""
+16 => """
+struct ConsultarNfseEnvio {
+    string identificacaoPrestador;
+    string numeroNfse;
+    dateTime dataInicial;
+    dateTime dataFinal;
+    string identificacaoTomador;
+    string identificacaoItermediarioServico;
+}
+"""
+17 => """
+struct ConsultarNfseEnvioResponse {
+    nfseResposta return;
+}
+"""
+18 => """
+struct nfseResposta {
+    string mensagens;
+    nfeRpsNotaFiscal notasFiscais;
+}
+"""
+19 => """
+struct ConsultarNfseRpsEnvio {
+    string identificacaoRps;
+    string identificacaoPrestador;
+}
+"""
+20 => """
+struct ConsultarNfseRpsEnvioResponse {
+    nfseRpsResposta return;
+}
+"""
+21 => """
+struct autenticarContribuinte {
+    string identificacaoPrestador;
+    string senha;
+}
+"""
+22 => """
+struct autenticarContribuinteResponse {
+    string return;
+}
+"""
+23 => """
+struct ConsultarUltimoLote {
+    string identificacaoPrestador;
+}
+"""
+24 => """
+struct ConsultarUltimoLoteResponse {
+    int return;
+}
+"""
+25 => """
+struct ValidarLoteRps {
+    string identificacaoPrestador;
+    string arquivo;
+}
+"""
+26 => """
+struct ValidarLoteRpsResponse {
+    loteRpsResposta return;
+}
+"""
+27 => """
+struct loteRpsResposta {
+    dateTime dataRecebimento;
+    string mensagens;
+    string numeroLote;
+    string numeroProtocolo;
+}
+"""
+28 => """
+struct ListarServicos116Municipal {
+    string identificacaoPrestador;
+}
+"""
+29 => """
+struct ListarServicos116MunicipalResponse {
+    servico116Municipal return;
+}
+"""
+30 => """
+struct servico116Municipal {
+    string atividadePrincipal;
+    string codigoCnae;
+    string codigoServico116;
+    string nomeCnae;
+}
+"""
+31 => """
+struct servicoMunic {
+    string aliquota;
+    string codigo;
+    string denominacao;
+    string retencao;
+    string tipoServico;
+}
+"""
+32 => """
+struct ListarServicosMunicipais {
+    string identificacaoPrefeitura;
+}
+"""
+33 => """
+struct ListarServicosMunicipaisResponse {
+    servicoMunic return;
+}
+"""
+34 => """
+struct EnviarLoteRpsEnvio {
+    string identificacaoPrestador;
+    string hashIdentificador;
+    string arquivo;
+}
+"""
+35 => """
+struct EnviarLoteRpsEnvioResponse {
+    loteRpsResposta return;
+}
+"""
+36 => """
+struct ConsultarUltimaRps {
+    string identificacaoPrestador;
+}
+"""
+37 => """
+struct ConsultarUltimaRpsResponse {
+    int return;
+}
+"""
+38 => """
+struct CancelarNfseMotivoEnvio {
+    string identificacaoPrestador;
+    string senha;
+    string numeroNfse;
+    string motivoCancelamento;
+}
+"""
+39 => """
+struct CancelarNfseMotivoEnvioResponse {
+    nfseRpsResposta return;
+}
+"""
+40 => """
+struct verificarEmpresa {
+    string identificacaoPrestador;
+}
+"""
+41 => """
+struct verificarEmpresaResponse {
+    empresa return;
+}
+"""
+42 => """
+struct empresa {
+    string endereco;
+    base64Binary logo;
+    string numDiasCoversaoRps;
+    string utilizaIntermediario;
+    string utilizaListaCnae;
+}
+"""
+43 => """
+struct ConsultarCnae {
+    string identificacaoPrestador;
+}
+"""
+44 => """
+struct ConsultarCnaeResponse {
+    cnae return;
+}
+"""
+45 => """
+struct cnae {
+    string atividadePrincipal;
+    string codigoCnae;
+    string codigoServico;
+    string nomeCnae;
+    string nomeServico;
+}
+"""
+46 => """
+struct requisitarAidf {
+    string identificacaoPrestador;
+    string numeroInicial;
+    string numeroFinal;
+    string tipo;
+    string quantidade;
+    string modeloSerie;
+    string vias;
+    string nomeGrafica;
+    string cnpjGrafica;
+    string validade;
+}
+"""
+47 => """
+struct requisitarAidfResponse {
+    int return;
+}
+"""
+48 => """
+struct ConsultarLoteRpsEnvio {
+    string identificacaoPrestador;
+    string numeroProtocolo;
+}
+"""
+49 => """
+struct ConsultarLoteRpsEnvioResponse {
+    nfseResposta return;
+}
+"""
+50 => """
+struct ListarServicosMunicipaisPrestador {
+    string identificacaoPrestador;
+}
+"""
+51 => """
+struct ListarServicosMunicipaisPrestadorResponse {
+    servicoMunic return;
+}
+"""
+
