@@ -305,6 +305,25 @@ class WebService {
         return $this->xml;
     }
 
+    public function consultarUltimoRps( $identificacaoPrestador ) {
+        try {
+            $soapClient = new SoapClient($this->urlWsdl, array(
+                'exceptions' => true,
+                'trace' => true
+            ));
+
+            $last_batch = array(
+                "ConsultarUltimaRps" => array(
+                    'identificacaoPrestador' => $identificacaoPrestador,
+                )
+            );
+            $request_auth_token = $soapClient->__call('consultarUltimaRps', $last_batch);
+
+            return $request_auth_token->return;
+        } catch ( SoapFault $exception ) {
+            dd( $exception->getMessage() );
+        };
+    }
 
     public function consultarUltimoLote( $identificacaoPrestador ) {
         try {
