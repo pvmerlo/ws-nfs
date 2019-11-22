@@ -1,0 +1,18 @@
+{
+    "name": "pjmalva/ws-nfs-el",
+    "description": "Web Service Nota fiscal serviço E&L",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pj Malva",
+            "email": "pjmalva@gmail.com"
+        }
+    ],
+    "keywords": [
+        "el",
+        "e&l",
+        "nfs"
+    ],
+    "require": {}
+}
