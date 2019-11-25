@@ -305,6 +305,16 @@ class WebService {
         return $this->xml;
     }
 
+    public function getArray( $xml=NULL ){
+        if ( $xml == NULL ) {
+            return $this->getXML();
+        } else {
+            $sxml = simplexml_load_string( $this->xml );
+            $array = json_decode(json_encode($sxml), true);
+            return $array;
+        }
+    }
+
     public function consultarUltimoRps( $identificacaoPrestador ) {
         try {
             $soapClient = new SoapClient($this->urlWsdl, array(
