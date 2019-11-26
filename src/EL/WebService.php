@@ -308,12 +308,12 @@ class WebService {
 
     public function getArray( $xml=NULL ){
         if ( $xml == NULL ) {
-            return $this->getXML();
-        } else {
-            $sxml = simplexml_load_string( $this->xml );
-            $array = json_decode(json_encode($sxml), true);
-            return $array;
+            $xml = $this->xml;
         }
+
+        $sxml = simplexml_load_string( $xml );
+        $array = json_decode(json_encode($sxml), true);
+        return $array;
     }
 
     public function consultarUltimoRps( $identificacaoPrestador ) {
