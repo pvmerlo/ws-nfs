@@ -65,7 +65,7 @@ class WebService {
             // dd( $content );
             $parent->appendChild($content);
         } else {
-            if ( !$required && ( $content == '' || $content == NULL ) ) {
+            if ( !$required && ( $content == '' || $content == NULL || $content == 0 ) ) {
                 return;
             }
 
@@ -257,6 +257,7 @@ class WebService {
         $this->addChild( $valores, 'ValorOutrasRetencoes', $std->valorOutrasRetencoes, FALSE);
         $this->addChild( $valores, 'ValorLiquidoNfse', $std->valorLiquidoNfse, FALSE);
         $this->addChild( $valores, 'ValorIssRetido', $std->valorIssRetido, FALSE);
+        $this->addChild( $valores, 'OutrosDescontos', $std->outrosDescontos, FALSE);
         $this->valores = $valores;
         return $valores;
     }
