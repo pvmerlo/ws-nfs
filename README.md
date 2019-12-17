@@ -15,19 +15,16 @@ Library pra geração de notas fiscal de Serviço
 
 composer require pjmalva/ws-nfs
 
-`
+```
+
 ## Requirements
 
 Para que este pacote possa funcionar são necessários os seguintes requisitos do PHP e outros pacotes dos quais esse depende.
 
 - PHP 7.x (recomendável PHP 7.2)
-- ext-curl
-- ext-dom
-- ext-json
-- ext-gd
-- ext-mbstring
-- ext-mcrypt
-- ext-openssl
 - ext-soap
 - ext-xml
-- ext-zip
+
+## Usage
+
+Use as funções para integrar as classes **stdClass**, para que então elas sejão convertidas em **XML**
