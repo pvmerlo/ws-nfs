@@ -8,6 +8,7 @@ use stdClass;
 
 use DOMDocument;
 use DOMElement;
+use SoapFault;
 
 // CNPJ PRESTADOR TESTE => 11097137000122
 // CNPJ TOMADOR TESTE => 53350865000144
@@ -115,7 +116,7 @@ class WebService {
         } else if ( strlen( $std->cpfCnpj ) == 0 ) {
             $this->addChild( $identificacaoPrestador,'IndicacaoCpfCnpj', 0);
         } else {
-            throw new Exception( 'CPF / CNPJ Invalido' );
+            throw new \Exception( 'CPF / CNPJ Invalido' );
         }
 
         $this->addChild( $identificacaoPrestador, 'InscricaoMunicipal', $std->inscricaoMunicipal);
@@ -218,7 +219,7 @@ class WebService {
         } else if ( strlen( $std->cpfCnpj ) == 0 ) {
             $this->addChild( $identificacaoTomador,'IndicacaoCpfCnpj', 0);
         } else {
-            throw new Exception( 'CPF / CNPJ Invalido' );
+            throw new \Exception( 'CPF / CNPJ Invalido' );
         }
 
         $this->addChild( $identificacaoTomador, 'InscricaoMunicipal', $std->inscricaoMunicipal, FALSE);
@@ -332,7 +333,7 @@ class WebService {
 
             return $request_auth_token->return;
         } catch ( SoapFault $exception ) {
-            dd( $exception->getMessage() );
+            return $exception->getMessage();
         };
     }
 
@@ -352,7 +353,7 @@ class WebService {
 
             return $request_auth_token->return;
         } catch ( SoapFault $exception ) {
-            dd( $exception->getMessage() );
+            return $exception->getMessage();
         };
     }
 
@@ -371,7 +372,7 @@ class WebService {
             $request_auth_token = $soapClient->__call('finalizarSessao', $param);
             return $request_auth_token->return;
         } catch ( SoapFault $exception ) {
-            dd( $exception->getMessage() );
+            return $exception->getMessage();
         };
     }
 
@@ -393,7 +394,7 @@ class WebService {
             $request_auth_token = $soapClient->__call('cancelarNfseMotivoEnvio', $param);
             return $request_auth_token->return;
         } catch ( SoapFault $exception ) {
-            dd( $exception->getMessage() );
+            return $exception->getMessage();
         };
     }
 
@@ -414,7 +415,7 @@ class WebService {
             $request_batch_serach = $soapClient->__call('consultarLoteRpsEnvio', $batch_serach);
             return $request_batch_serach->return;
         } catch ( SoapFault $exception ) {
-            dd( $exception->getMessage() );
+            return $exception->getMessage();
         };
     }
 
@@ -435,7 +436,7 @@ class WebService {
             $request_auth_token = $soapClient->__call('autenticarContribuinte', $param);
             return $request_auth_token->return;
         } catch ( SoapFault $exception ) {
-            dd( $exception->getMessage() );
+            return $exception->getMessage();
         };
     }
 
@@ -457,7 +458,7 @@ class WebService {
             $request_batch_nfs_info = $soapClient->__call('enviarLoteRpsEnvio', $batch_nfs);
             return $request_batch_nfs_info->return;
         } catch ( SoapFault $exception ) {
-            dd( $exception->getMessage() );
+            return $exception->getMessage();
         };
     }
 
