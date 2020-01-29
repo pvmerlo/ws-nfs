@@ -29,5 +29,6 @@ Para que este pacote possa funcionar são necessários os seguintes requisitos d
 
 ## Usage
 
-Use as funções para integrar as classes **stdClass**, para que então elas sejão convertidas em **XML**
+Use as funções para integrar as classes **stdClass**, para que então elas sejão convertidas em **XML**.
+
 Confira o [USAGE](https://github.com/pjmalva/ws-nfs/blob/master/USAGE.md) para mais informações
