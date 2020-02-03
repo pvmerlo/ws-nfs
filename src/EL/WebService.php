@@ -125,18 +125,18 @@ class WebService
     
     private function obterDadosDoAtor(stdClass $std, string $tipoDoAtor)
     {
-        $dadosTomador = $this->nfs->createElement('Dados' . $tipoDoAtor);
-        $this->addChild($dadosTomador, 'RazaoSocial', $std->razaoSocial);
+        $dadosDoAtor = $this->nfs->createElement('Dados' . $tipoDoAtor);
+        $this->addChild($dadosDoAtor, 'RazaoSocial', $std->razaoSocial);
         
         if (isset($std->nomeFantasia)) {
-            $this->addChild($dadosTomador, 'NomeFantasia', $std->nomeFantasia);
+            $this->addChild($dadosDoAtor, 'NomeFantasia', $std->nomeFantasia);
         }
         
         if ($tipoDoAtor === WebService::PRESTADOR) {
-            $this->addChild($dadosPrestador, 'IncentivadorCultural', $std->incentivadorCultural);
-            $this->addChild($dadosPrestador, 'OptanteSimplesNacional', $std->optanteSimplesNacional);
-            $this->addChild($dadosPrestador, 'NaturezaOperacao', $std->naturezaOperacao);
-            $this->addChild($dadosPrestador, 'RegimeEspecialTributacao', $std->regimeEspecialTributacao);
+            $this->addChild($dadosDoAtor, 'IncentivadorCultural', $std->incentivadorCultural);
+            $this->addChild($dadosDoAtor, 'OptanteSimplesNacional', $std->optanteSimplesNacional);
+            $this->addChild($dadosDoAtor, 'NaturezaOperacao', $std->naturezaOperacao);
+            $this->addChild($dadosDoAtor, 'RegimeEspecialTributacao', $std->regimeEspecialTributacao);
         }
         
         if (isset($std->{"Identificacao" . $tipoDoAtor})) {
@@ -151,7 +151,7 @@ class WebService
             $this->{"endereco" . $tipoDoAtor} = $this->obterEndereco($std->Endereco);
         }
         
-        return $dadosTomador;
+        return $dadosDoAtor;
     }
     
     private function obterEndereco(stdClass $std)
