@@ -158,11 +158,8 @@ class WebService
     private function obterEndereco(stdClass $std)
     {
         $endereco = $this->nfs->createElement('Endereco');
-        
-        $this->addChild($endereco, 'CodigoMunicipio', $std->codigoMunicipio);
-        $this->addChild($endereco, 'Municipio', $std->municipio);
-        $this->addChild($endereco, 'Uf', $std->uf);
-        
+
+
         if (isset($std->logradouroTipo)) {
             $this->addChild($endereco, 'LogradouroTipo', $std->logradouroTipo);
         }
@@ -175,6 +172,11 @@ class WebService
         if (isset($std->logradouroComplemento)) {
             $this->addChild($endereco, 'LogradouroComplemento', $std->logradouroComplemento);
         }
+        
+        $this->addChild($endereco, 'CodigoMunicipio', $std->codigoMunicipio);
+        $this->addChild($endereco, 'Municipio', $std->municipio);
+        $this->addChild($endereco, 'Uf', $std->uf);
+
         if (isset($std->bairro)) {
             $this->addChild($endereco, 'Bairro', $std->bairro);
         }
