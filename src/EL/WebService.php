@@ -102,7 +102,9 @@ class WebService
          * Além disso, busco por outras tags possíveis para este campo: cpf e cnpj.
          */
         $std->cpfCnpj = $this->somenteNumeros(($std->cpfCnpj ?? ($std->cpf ?? ($std->cnpj ?? ""))));
-        
+
+        $this->addChild($identificacao, 'CpfCnpj', $std->cpfCnpj);
+
         if (strlen($std->cpfCnpj) == 11) {
             $this->addChild($identificacao, 'IndicacaoCpfCnpj', 1);
         } else {
@@ -117,7 +119,6 @@ class WebService
             }
         }
         
-        $this->addChild($identificacao, 'CpfCnpj', $std->cpfCnpj);
         $this->addChild($identificacao, 'InscricaoMunicipal', $std->inscricaoMunicipal);
         
         return $identificacao;
@@ -188,11 +189,13 @@ class WebService
     function obterContato(stdClass $std)
     {
         $contato = $this->nfs->createElement('Contato');
-        $this->addChild($contato, 'Email', $std->email);
-        
+
         if (isset($std->telefone)) {
             $this->addChild($contato, 'Telefone', $std->telefone);
         }
+
+        $this->addChild($contato, 'Email', $std->email);
+
         return $contato;
     }
     
