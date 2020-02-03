@@ -1,26 +1,36 @@
 {
-    "name": "pjmalva/ws-nfs",
-    "description": "Web Service Nota fiscal serviço E&L",
-    "type": "library",
-    "license": ["LGPL-3.0-or-later", "GPL-3.0-or-later", "MIT"],
-    "authors": [
-        {
-            "name": "Pj Malva",
-            "email": "pjmalva@gmail.com"
-        }
-    ],
-    "keywords": [
-        "web service",
-        "nfs"
-    ],
-    "require": {
-        "php": ">=7.2.0"
+  "name": "pjmalva/ws-nfs",
+  "description": "Web Service Nota fiscal serviço E&L",
+  "type": "library",
+  "license": [
+    "LGPL-3.0-or-later",
+    "GPL-3.0-or-later",
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "Pj Malva",
+      "email": "pjmalva@gmail.com"
     },
-    "autoload": {
-        "psr-4": {
-            "NFs\\EL\\": "src/"
-        }
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    {
+      "name": "PVMerlo",
+      "email": "pvmerlo@gmail.com"
+    }
+  ],
+  "keywords": [
+    "web service",
+    "nfs"
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "ext-dom": "*",
+    "ext-soap": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "NFs\\EL\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }
