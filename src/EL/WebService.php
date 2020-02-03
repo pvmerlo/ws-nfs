@@ -172,14 +172,14 @@ class WebService
         if (isset($std->logradouroComplemento)) {
             $this->addChild($endereco, 'LogradouroComplemento', $std->logradouroComplemento);
         }
-        
+        if (isset($std->bairro)) {
+            $this->addChild($endereco, 'Bairro', $std->bairro);
+        }
+
         $this->addChild($endereco, 'CodigoMunicipio', $std->codigoMunicipio);
         $this->addChild($endereco, 'Municipio', $std->municipio);
         $this->addChild($endereco, 'Uf', $std->uf);
 
-        if (isset($std->bairro)) {
-            $this->addChild($endereco, 'Bairro', $std->bairro);
-        }
         if (isset($std->cep)) {
             $this->addChild($endereco, 'Cep', $std->cep);
         }
