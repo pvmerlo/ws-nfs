@@ -140,8 +140,8 @@ class WebService
             $this->addChild($dadosDoAtor, 'RegimeEspecialTributacao', $std->regimeEspecialTributacao);
         }
         
-        if (isset($std->{"Identificacao" . $tipoDoAtor})) {
-            $this->{"identificacao" . $tipoDoAtor} = $this->obterIdentificacao($std->{"Identificacao" . $tipoDoAtor}, $tipoDoAtor);
+        if (isset($std->Identificacao)) {
+            $this->{"identificacao" . $tipoDoAtor} = $this->obterIdentificacao($std->Identificacao, $tipoDoAtor);
         }
         
         if (isset($std->Contato)) {
