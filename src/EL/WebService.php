@@ -102,7 +102,9 @@ class WebService
          * Além disso, busco por outras tags possíveis para este campo: cpf e cnpj.
          */
         $std->cpfCnpj = $this->somenteNumeros(($std->cpfCnpj ?? ($std->cpf ?? ($std->cnpj ?? ""))));
-        
+
+        $this->addChild($identificacao, 'CpfCnpj', $std->cpfCnpj);
+
         if (strlen($std->cpfCnpj) == 11) {
             $this->addChild($identificacao, 'IndicacaoCpfCnpj', 1);
         } else {
@@ -117,7 +119,6 @@ class WebService
             }
         }
         
-        $this->addChild($identificacao, 'CpfCnpj', $std->cpfCnpj);
         $this->addChild($identificacao, 'InscricaoMunicipal', $std->inscricaoMunicipal);
         
         return $identificacao;
@@ -139,8 +140,8 @@ class WebService
             $this->addChild($dadosDoAtor, 'RegimeEspecialTributacao', $std->regimeEspecialTributacao);
         }
         
-        if (isset($std->{"Identificacao" . $tipoDoAtor})) {
-            $this->{"identificacao" . $tipoDoAtor} = $this->obterIdentificacao($std->{"Identificacao" . $tipoDoAtor}, $tipoDoAtor);
+        if (isset($std->Identificacao)) {
+            $this->{"identificacao" . $tipoDoAtor} = $this->obterIdentificacao($std->Identificacao, $tipoDoAtor);
         }
         
         if (isset($std->Contato)) {
@@ -157,11 +158,8 @@ class WebService
     private function obterEndereco(stdClass $std)
     {
         $endereco = $this->nfs->createElement('Endereco');
-        
-        $this->addChild($endereco, 'CodigoMunicipio', $std->codigoMunicipio);
-        $this->addChild($endereco, 'Municipio', $std->municipio);
-        $this->addChild($endereco, 'Uf', $std->uf);
-        
+
+
         if (isset($std->logradouroTipo)) {
             $this->addChild($endereco, 'LogradouroTipo', $std->logradouroTipo);
         }
@@ -177,6 +175,11 @@ class WebService
         if (isset($std->bairro)) {
             $this->addChild($endereco, 'Bairro', $std->bairro);
         }
+
+        $this->addChild($endereco, 'CodigoMunicipio', $std->codigoMunicipio);
+        $this->addChild($endereco, 'Municipio', $std->municipio);
+        $this->addChild($endereco, 'Uf', $std->uf);
+
         if (isset($std->cep)) {
             $this->addChild($endereco, 'Cep', $std->cep);
         }
@@ -188,11 +191,13 @@ class WebService
     function obterContato(stdClass $std)
     {
         $contato = $this->nfs->createElement('Contato');
-        $this->addChild($contato, 'Email', $std->email);
-        
+
         if (isset($std->telefone)) {
             $this->addChild($contato, 'Telefone', $std->telefone);
         }
+
+        $this->addChild($contato, 'Email', $std->email);
+
         return $contato;
     }
     
